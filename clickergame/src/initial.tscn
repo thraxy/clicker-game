@@ -1,0 +1,145 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/bluesq.png" type="Texture" id=1]
+[ext_resource path="res://assets/ylsq.png" type="Texture" id=2]
+[ext_resource path="res://assets/potionylw.png" type="Texture" id=3]
+[ext_resource path="res://assets/potionpurpl.png" type="Texture" id=4]
+[ext_resource path="res://assets/potionyt.png" type="Texture" id=5]
+[ext_resource path="res://src/initial.gd" type="Script" id=6]
+[ext_resource path="res://assets/M.png" type="Texture" id=7]
+[ext_resource path="res://assets/potion.png" type="Texture" id=8]
+[ext_resource path="res://assets/potionpink.png" type="Texture" id=9]
+
+[node name="initial" type="Node2D"]
+script = ExtResource( 6 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="background" type="Sprite" parent="CanvasLayer"]
+
+[node name="Bluesq" type="Sprite" parent="CanvasLayer/background"]
+position = Vector2( 512, 300 )
+scale = Vector2( 16, 9.375 )
+texture = ExtResource( 1 )
+
+[node name="clicklabel" type="RichTextLabel" parent="CanvasLayer"]
+margin_left = 664.0
+margin_top = 64.0
+margin_right = 714.0
+margin_bottom = 104.0
+rect_min_size = Vector2( 50, 10 )
+rect_scale = Vector2( 5, 5 )
+text = "Click"
+
+[node name="clicker" type="TextureButton" parent="CanvasLayer"]
+margin_left = 704.0
+margin_top = 128.0
+margin_right = 768.0
+margin_bottom = 192.0
+texture_normal = ExtResource( 2 )
+
+[node name="MenuButton" type="MenuButton" parent="CanvasLayer"]
+margin_left = 16.0
+margin_top = 8.0
+margin_right = 92.0
+margin_bottom = 78.0
+rect_scale = Vector2( 0.5, 0.5 )
+icon = ExtResource( 7 )
+
+[node name="Shoplabel" type="Label" parent="CanvasLayer"]
+margin_left = 90.0
+margin_top = 128.0
+margin_right = 130.0
+margin_bottom = 142.0
+rect_scale = Vector2( 3, 3 )
+text = "SHOP"
+
+[node name="item1" type="TextureButton" parent="CanvasLayer"]
+margin_left = 26.0
+margin_top = 184.0
+margin_right = 90.0
+margin_bottom = 248.0
+texture_normal = ExtResource( 8 )
+
+[node name="item2" type="TextureButton" parent="CanvasLayer"]
+margin_left = 26.0
+margin_top = 248.0
+margin_right = 90.0
+margin_bottom = 312.0
+texture_normal = ExtResource( 9 )
+
+[node name="item3" type="TextureButton" parent="CanvasLayer"]
+margin_left = 26.0
+margin_top = 312.0
+margin_right = 90.0
+margin_bottom = 376.0
+texture_normal = ExtResource( 4 )
+
+[node name="item4" type="TextureButton" parent="CanvasLayer"]
+margin_left = 26.0
+margin_top = 376.0
+margin_right = 90.0
+margin_bottom = 440.0
+rect_pivot_offset = Vector2( 88, 56 )
+texture_normal = ExtResource( 3 )
+
+[node name="item5" type="TextureButton" parent="CanvasLayer"]
+margin_left = 26.0
+margin_top = 440.0
+margin_right = 90.0
+margin_bottom = 504.0
+rect_pivot_offset = Vector2( 88, 56 )
+texture_normal = ExtResource( 5 )
+
+[node name="item3desc" type="Label" parent="CanvasLayer"]
+margin_left = 98.0
+margin_top = 312.0
+margin_right = 191.0
+margin_bottom = 343.0
+rect_scale = Vector2( 2, 2 )
+text = "+100 per click
+Cost: 1000 Clicks"
+
+[node name="item4desc" type="Label" parent="CanvasLayer"]
+margin_left = 98.0
+margin_top = 376.0
+margin_right = 191.0
+margin_bottom = 407.0
+rect_scale = Vector2( 2, 2 )
+text = "+500 per click
+Cost: 10000 Clicks"
+
+[node name="item2desc" type="Label" parent="CanvasLayer"]
+margin_left = 98.0
+margin_top = 248.0
+margin_right = 191.0
+margin_bottom = 279.0
+rect_scale = Vector2( 2, 2 )
+text = "+25 per click
+Cost: 100 Clicks"
+
+[node name="item1desc" type="Label" parent="CanvasLayer"]
+margin_left = 98.0
+margin_top = 184.0
+margin_right = 191.0
+margin_bottom = 215.0
+rect_scale = Vector2( 2, 2 )
+text = "+5 per click
+Cost: 10 Clicks"
+
+[node name="item5desc" type="Label" parent="CanvasLayer"]
+margin_left = 98.0
+margin_top = 438.0
+margin_right = 191.0
+margin_bottom = 469.0
+rect_scale = Vector2( 2, 2 )
+text = "+1000 per click
+Cost: 100000 Clicks"
+
+[connection signal="pressed" from="CanvasLayer/clicker" to="." method="_on_clicker_pressed"]
+[connection signal="pressed" from="CanvasLayer/MenuButton" to="." method="_on_MenuButton_pressed"]
+[connection signal="pressed" from="CanvasLayer/item1" to="." method="_on_item1_pressed"]
+[connection signal="pressed" from="CanvasLayer/item2" to="." method="_on_item2_pressed"]
+[connection signal="pressed" from="CanvasLayer/item3" to="." method="_on_item3_pressed"]
+[connection signal="pressed" from="CanvasLayer/item4" to="." method="_on_item4_pressed"]
+[connection signal="pressed" from="CanvasLayer/item5" to="." method="_on_item5_pressed"]
